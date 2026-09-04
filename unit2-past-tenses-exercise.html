@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2 — Past Simple, Past Continuous & Used to</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F2E9;
+    --card:#FFFDF8;
+    --ink:#23303A;
+    --ink-soft:#63707A;
+    --line:#E1D8C2;
+    --accent:#1F6F5C;
+    --accent-dark:#154D40;
+    --accent-tint:#E4EFEA;
+    --warn:#B23A48;
+    --warn-tint:#F8E9E9;
+    --mustard:#AD7F2A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image: radial-gradient(circle at 1px 1px, rgba(35,48,58,0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Lora',Georgia,serif; font-weight:600; margin:0; }
+  .wrap{max-width:740px;margin:0 auto;padding:0 20px 90px;}
+
+  header.top{
+    position:sticky; top:0; z-index:20;
+    background:rgba(246,242,233,0.95);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{
+    max-width:740px;margin:0 auto;padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .top-title{font-size:0.95rem; font-weight:600; color:var(--ink);}
+  .top-title span{color:var(--ink-soft); font-weight:400; font-size:0.82rem; display:block;}
+  .top-actions{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .score-pill{
+    font-family:'Lora',serif; font-size:0.9rem; font-weight:600;
+    background:var(--accent-tint); color:var(--accent-dark);
+    border:1px solid var(--accent); border-radius:20px; padding:5px 14px;
+    white-space:nowrap;
+  }
+  .score-pill.pending{ background:transparent; color:var(--ink-soft); border-color:var(--line); }
+  button.submitBtn{
+    font-family:'Inter',sans-serif; font-weight:700; font-size:0.85rem;
+    background:var(--accent); color:#fff; border:1px solid var(--accent);
+    border-radius:20px; padding:8px 16px; cursor:pointer;
+  }
+  button.submitBtn:hover{background:var(--accent-dark);}
+  button.submitBtn:disabled{background:var(--line); border-color:var(--line); color:var(--ink-soft); cursor:not-allowed;}
+  button.copyBtn{
+    font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem;
+    background:transparent; color:var(--accent-dark); border:1px solid var(--accent);
+    border-radius:20px; padding:7px 15px; cursor:pointer;
+  }
+  button.copyBtn:disabled{color:var(--ink-soft); border-color:var(--line); cursor:not-allowed;}
+  button.resetBtn{
+    border:1px solid var(--line); background:transparent; color:var(--ink-soft);
+    font-family:'Inter',sans-serif; font-size:0.82rem; padding:7px 12px;
+    border-radius:20px; cursor:pointer;
+  }
+  button.resetBtn:hover{border-color:var(--warn); color:var(--warn);}
+
+  .hero{padding:40px 0 20px;}
+  .hero h1{font-size:clamp(1.6rem,4vw,2.15rem); color:var(--ink); line-height:1.2;}
+  .hero p.lede{margin-top:10px; color:var(--ink-soft); font-size:0.98rem; max-width:58ch;}
+  .unit-tag{
+    display:inline-block; font-family:'Lora',serif; font-style:italic; font-size:0.85rem;
+    color:var(--mustard); border-bottom:1px solid var(--mustard); padding-bottom:2px; margin-bottom:10px;
+  }
+  .namefield{
+    margin-top:18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 16px;
+  }
+  .namefield label{font-size:0.88rem; color:var(--ink-soft); white-space:nowrap;}
+  .namefield input{
+    flex:1; min-width:180px; border:none; border-bottom:1.5px solid var(--ink-soft);
+    background:transparent; font-family:'Inter',sans-serif; font-size:0.95rem; padding:4px 2px; outline-offset:2px;
+  }
+  .namefield input:focus{outline:2px solid var(--accent); border-bottom-color:var(--accent);}
+  nav.jump{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;}
+  nav.jump a{
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line); background:var(--card);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Lora',serif; font-weight:600; font-size:0.9rem; color:var(--ink);
+    text-decoration:none;
+  }
+  nav.jump a:hover{border-color:var(--accent); color:var(--accent-dark);}
+
+  section.ex{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    margin-top:28px; padding:26px 26px 20px; box-shadow:0 1px 0 rgba(35,48,58,0.03);
+  }
+  .ex-head{display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;}
+  .badge{
+    flex:none; width:38px; height:38px; border-radius:50%;
+    background:var(--ink); color:var(--paper);
+    font-family:'Lora',serif; font-weight:600; font-size:1.05rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ex-head h2{font-size:1.05rem; color:var(--ink);}
+  .ex-head p{margin:3px 0 0; color:var(--ink-soft); font-size:0.92rem;}
+  .sec-score{
+    margin-left:auto; font-family:'Lora',serif; font-size:0.88rem; font-weight:600;
+    color:var(--accent-dark); background:var(--accent-tint); border:1px solid var(--accent);
+    border-radius:16px; padding:3px 12px; white-space:nowrap; display:none;
+  }
+  .verbbox{
+    margin:14px 0 18px; padding:10px 14px; border:1px dashed var(--line); border-radius:8px;
+    background:var(--paper); font-family:'Lora',serif; font-style:italic; color:var(--ink); font-size:0.95rem;
+  }
+  ol.qlist{list-style:none; margin:0; padding:0; counter-reset:q;}
+  ol.qlist > li{ counter-increment:q; display:flex; gap:10px; padding:11px 0; border-top:1px solid var(--line); font-size:0.97rem; }
+  ol.qlist > li:first-child{border-top:none;}
+  ol.qlist > li::before{
+    content:counter(q); flex:none; width:20px; color:var(--mustard);
+    font-family:'Lora',serif; font-weight:600; padding-top:1px;
+  }
+  .qtext{flex:1;}
+  input.blank{
+    font-family:'Inter',sans-serif; font-size:0.96rem; color:var(--ink);
+    border:none; border-bottom:1.5px solid var(--ink-soft);
+    background:transparent; padding:2px 4px; margin:0 2px;
+    min-width:120px; outline-offset:2px;
+  }
+  input.blank:focus{outline:2px solid var(--accent); border-bottom-color:var(--accent);}
+  input.blank.correct{background:var(--accent-tint); border-bottom-color:var(--accent); border-radius:4px;}
+  input.blank.incorrect{background:var(--warn-tint); border-bottom-color:var(--warn); border-radius:4px;}
+  input.blank[readonly]{cursor:not-allowed; opacity:0.92;}
+  .mark{font-weight:700; margin-left:3px; font-size:0.92rem;}
+  .mark.ok{color:var(--accent-dark);}
+  .mark.no{color:var(--warn);}
+
+  .choice{display:inline-flex; align-items:center; gap:6px; vertical-align:middle; margin:0 2px;}
+  .pill{
+    font-family:'Inter',sans-serif; font-size:0.88rem; cursor:pointer;
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    border-radius:16px; padding:4px 12px;
+  }
+  .pill.selected{border-color:var(--ink); background:var(--ink); color:var(--paper);}
+  .choice.correct .pill.selected{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .choice.incorrect .pill.selected{background:var(--warn); border-color:var(--warn); color:#fff;}
+  .choice.locked .pill{pointer-events:none; opacity:0.92;}
+
+  .story{font-size:0.98rem; line-height:2.05;}
+  .story p{margin:0 0 14px;}
+
+  .note{
+    font-size:0.85rem; color:var(--ink-soft); background:var(--paper);
+    border:1px dashed var(--line); border-radius:8px; padding:10px 14px; margin-bottom:16px;
+  }
+  footer{margin-top:40px; text-align:center; color:var(--ink-soft); font-size:0.82rem;}
+
+  @media (max-width:520px){
+    .wrap{padding:0 14px 70px;}
+    section.ex{padding:20px 16px;}
+    ol.qlist > li{font-size:0.94rem;}
+    input.blank{min-width:96px;}
+    .sec-score{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="top-title">Unit 2 <span>Past simple · Past continuous · Used to</span></div>
+    <div class="top-actions">
+      <span class="score-pill pending" id="globalScore">Chưa nộp bài</span>
+      <button class="submitBtn" id="submitBtn">Nộp bài</button>
+      <button class="copyBtn" id="copyBtn" disabled>Sao chép đáp án</button>
+      <button class="resetBtn" id="resetAll">Làm lại</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="unit-tag">Worksheet — bài tập ngữ pháp</span>
+    <h1>Past Simple, Past Continuous &amp; Used to</h1>
+    <p class="lede">Điền đáp án vào tất cả chỗ trống bên dưới, sau đó bấm <strong>“Nộp bài”</strong>. Kết quả đúng/sai chỉ hiện ra <strong>sau khi nộp</strong>. Sau khi nộp, bấm <strong>“Sao chép đáp án”</strong> để dán vào tin nhắn/email gửi giáo viên.</p>
+    <div class="namefield">
+      <label for="studentName">Họ và tên:</label>
+      <input id="studentName" type="text" placeholder="vd: Nguyễn Ngọc Mai">
+    </div>
+    <nav class="jump">
+      <a href="#exA">A</a><a href="#exB">B</a><a href="#exC">C</a><a href="#exD">D</a><a href="#exE">E</a><a href="#exF">F</a>
+    </nav>
+  </div>
+
+  <!-- EXERCISE A -->
+  <section class="ex gradable" id="exA" data-letter="A">
+    <div class="ex-head">
+      <div class="badge">A</div>
+      <div>
+        <h2>Complete using the correct past simple form of the verbs in the box</h2>
+        <p>You may have to use some negative forms.</p>
+      </div>
+      <span class="sec-score"></span>
+    </div>
+    <div class="verbbox">come · give · go · have · know · make · send · take</div>
+    <ol class="qlist">
+      <li><span class="qtext">I got to the post office just before it closed and <input class="blank" data-q="1" data-answers='["sent"]'><span class="mark"></span> the letter.</span></li>
+      <li><span class="qtext">We invited Stephanie to the party, but she <input class="blank" data-q="2" data-answers='["didn&#39;t come","did not come"]' size="14"><span class="mark"></span>.</span></li>
+      <li><span class="qtext">Jack lost his job because he <input class="blank" data-q="3" data-answers='["made"]'><span class="mark"></span> too many mistakes.</span></li>
+      <li><span class="qtext">Everyone <input class="blank" data-q="4" data-answers='["knew"]'><span class="mark"></span> that it was Bill's fault, but nobody said anything.</span></li>
+      <li><span class="qtext">Karen <input class="blank" data-q="5" data-answers='["took"]'><span class="mark"></span> the keys from the kitchen table and ran out the door.</span></li>
+      <li><span class="qtext">I was bored, so Mum <input class="blank" data-q="6" data-answers='["gave"]'><span class="mark"></span> me some money to go shopping.</span></li>
+      <li><span class="qtext">Do you remember the time we <input class="blank" data-q="7" data-answers='["went"]'><span class="mark"></span> to India on holiday?</span></li>
+      <li><span class="qtext">It started raining, but luckily I <input class="blank" data-q="8" data-answers='["had"]'><span class="mark"></span> an umbrella in my bag.</span></li>
+    </ol>
+  </section>
+
+  <!-- EXERCISE B -->
+  <section class="ex" id="exB" data-letter="B">
+    <div class="ex-head">
+      <div class="badge">B</div>
+      <div>
+        <h2>Look at the pictures and complete the sentences</h2>
+        <p>Use the correct form of the past simple.</p>
+      </div>
+    </div>
+    <div class="note">Phần này dựa trên tranh minh hoạ trong sách nên không tự chấm đúng/sai — câu trả lời của bạn sẽ được gửi nguyên văn cho giáo viên để chấm.</div>
+    <ol class="qlist">
+      <li><span class="qtext">I don't want to go and see the film because <em>I saw it last week</em>.</span></li>
+      <li><span class="qtext">I don't need a football because <input class="blank" data-q="2" style="min-width:220px" placeholder="…yesterday."></span></li>
+      <li><span class="qtext">I know a lot about Paris because <input class="blank" data-q="3" style="min-width:220px" placeholder="…two years ago."></span></li>
+      <li><span class="qtext">I don't need to worry about my homework because <input class="blank" data-q="4" style="min-width:220px" placeholder="…last night."></span></li>
+      <li><span class="qtext">I haven't got a PlayStation any more because <input class="blank" data-q="5" style="min-width:220px" placeholder="…in June."></span></li>
+      <li><span class="qtext">Mum is angry with me because <input class="blank" data-q="6" style="min-width:220px" placeholder="…a week ago."></span></li>
+    </ol>
+  </section>
+
+  <!-- EXERCISE C -->
+  <section class="ex gradable" id="exC" data-letter="C">
+    <div class="ex-head">
+      <div class="badge">C</div>
+      <div><h2>Complete using the correct past continuous form of the verbs in brackets</h2></div>
+      <span class="sec-score"></span>
+    </div>
+    <ol class="qlist">
+      <li><span class="qtext">Ted <input class="blank" data-q="1" data-answers='["was playing"]' size="14"><span class="mark"></span> (play) his guitar at half past seven.</span></li>
+      <li><span class="qtext">At midnight, I <input class="blank" data-q="2a" data-answers='["was sleeping"]' size="14"><span class="mark"></span> (sleep), but Jane <input class="blank" data-q="2b" data-answers='["was listening"]' size="14"><span class="mark"></span> (listen) to music.</span></li>
+      <li><span class="qtext">Luke <input class="blank" data-q="3" data-answers='["was standing"]' size="14"><span class="mark"></span> (stand) outside the bank when suddenly two robbers ran past him.</span></li>
+      <li><span class="qtext">I know Doug <input class="blank" data-q="4a" data-answers='["was working"]' size="14"><span class="mark"></span> (work) late at the office because I saw him when I <input class="blank" data-q="4b" data-answers='["was leaving"]' size="14"><span class="mark"></span> (leave).</span></li>
+      <li><span class="qtext"><input class="blank" data-q="5a" data-answers='["were"]' size="6"><span class="mark"></span> you <input class="blank" data-q="5b" data-answers='["having"]' size="10"><span class="mark"></span> (have) a shower when the earthquake happened?</span></li>
+      <li><span class="qtext">Penny <input class="blank" data-q="6" data-answers='["was running"]' size="14"><span class="mark"></span> (run) to catch the bus when she slipped and fell.</span></li>
+      <li><span class="qtext">When you saw Eugene, <input class="blank" data-q="7a" data-answers='["was"]' size="6"><span class="mark"></span> he <input class="blank" data-q="7b" data-answers='["going"]' size="10"><span class="mark"></span> (go) home?</span></li>
+      <li><span class="qtext">At midnight? Erm … we <input class="blank" data-q="8" data-answers='["were watching"]' size="14"><span class="mark"></span> (watch) a DVD, I think.</span></li>
+    </ol>
+  </section>
+
+  <!-- EXERCISE D -->
+  <section class="ex gradable" id="exD" data-letter="D">
+    <div class="ex-head">
+      <div class="badge">D</div>
+      <div><h2>Circle the correct word or phrase</h2></div>
+      <span class="sec-score"></span>
+    </div>
+    <ol class="qlist" id="listD"></ol>
+  </section>
+
+  <!-- EXERCISE E -->
+  <section class="ex gradable" id="exE" data-letter="E">
+    <div class="ex-head">
+      <div class="badge">E</div>
+      <div><h2>Complete using the correct past simple or past continuous form of the verbs in the box</h2></div>
+      <span class="sec-score"></span>
+    </div>
+    <div class="verbbox">answer · be · continue · get · go · have · open · practise · put · ring · say · shine · sing · wake</div>
+    <h3 style="font-size:1.05rem;margin:10px 0 6px;">Amber's Big Match</h3>
+    <div class="story">
+      <p>One morning, Amber (1) <input class="blank" data-q="1" data-answers='["woke"]' size="8"><span class="mark"></span> up early. The sun (2) <input class="blank" data-q="2" data-answers='["was shining"]' size="12"><span class="mark"></span> and the birds (3) <input class="blank" data-q="3" data-answers='["were singing"]' size="12"><span class="mark"></span>. Amber (4) <input class="blank" data-q="4" data-answers='["was"]' size="6"><span class="mark"></span> very excited because it was the day of the big tennis match.</p>
+      <p>Amber (5) <input class="blank" data-q="5" data-answers='["went"]' size="8"><span class="mark"></span> downstairs and into the kitchen, where her father (6) <input class="blank" data-q="6" data-answers='["was having"]' size="12"><span class="mark"></span> breakfast.</p>
+      <p>'Morning, Amber. Today's the day!' he (7) <input class="blank" data-q="7" data-answers='["said"]' size="8"><span class="mark"></span>. Amber smiled nervously. 'Don't worry!' he (8) <input class="blank" data-q="8" data-answers='["continued"]' size="10"><span class="mark"></span>. 'You'll be fine.'</p>
+      <p>Amber (9) <input class="blank" data-q="9" data-answers='["got"]' size="8"><span class="mark"></span> some toast into the toaster and (10) <input class="blank" data-q="10" data-answers='["opened"]' size="10"><span class="mark"></span> the fridge. Just as she (11) <input class="blank" data-q="11" data-answers='["was putting"]' size="12"><span class="mark"></span> the butter out, the phone (12) <input class="blank" data-q="12" data-answers='["rang"]' size="8"><span class="mark"></span>.</p>
+      <p>Her father (13) <input class="blank" data-q="13" data-answers='["answered"]' size="10"><span class="mark"></span> it. After a few minutes, he put the phone down.</p>
+      <p>'Bad news, I'm afraid. The other player (14) <input class="blank" data-q="14" data-answers='["was practising","was practicing"]' size="12"><span class="mark"></span> yesterday when she had an accident. The match is off.'</p>
+      <p>Amber ate her toast slowly. She was surprised she didn't feel disappointed.</p>
+    </div>
+  </section>
+
+  <!-- EXERCISE F -->
+  <section class="ex gradable" id="exF" data-letter="F">
+    <div class="ex-head">
+      <div class="badge">F</div>
+      <div>
+        <h2>Complete using the correct form of <em>used to</em></h2>
+        <p>You may have to use some negative forms.</p>
+      </div>
+      <span class="sec-score"></span>
+    </div>
+    <ol class="qlist">
+      <li><span class="qtext">When I was younger, I <input class="blank" data-q="1" data-answers='["used to"]' size="10"><span class="mark"></span> eat pizza almost every day!</span></li>
+      <li><span class="qtext"><input class="blank" data-q="2a" data-answers='["did"]' size="6"><span class="mark"></span> there <input class="blank" data-q="2b" data-answers='["use to"]' size="10"><span class="mark"></span> be a supermarket on the corner?</span></li>
+      <li><span class="qtext">Bradley is a teacher, but he <input class="blank" data-q="3" data-answers='["didn&#39;t use to","did not use to"]' size="16"><span class="mark"></span> want to be a train driver.</span></li>
+      <li><span class="qtext">I <input class="blank" data-q="4" data-answers='["didn&#39;t use to","did not use to"]' size="16"><span class="mark"></span> like eating cabbage, but now I love it!</span></li>
+      <li><span class="qtext"><input class="blank" data-q="5a" data-answers='["did"]' size="6"><span class="mark"></span> Rick <input class="blank" data-q="5b" data-answers='["use to"]' size="10"><span class="mark"></span> have blond hair when he was a little boy?</span></li>
+      <li><span class="qtext">I know Lily <input class="blank" data-q="6" data-answers='["didn&#39;t use to","did not use to"]' size="16"><span class="mark"></span> cook much, but now I think she makes dinner every day.</span></li>
+    </ol>
+  </section>
+
+  <footer>Worksheet Unit 2 — nộp bài để xem đúng/sai, sau đó gửi kết quả cho giáo viên.</footer>
+</div>
+
+<script>
+// ---------- Exercise D: build circle-the-correct-word items ----------
+const dData = [
+  {sent:"When we were in Canada, we ___ skiing almost every day.", a:"went", b:"were going", correct:"went"},
+  {sent:"About four years ago, I ___ to become a chef.", a:"decided", b:"was deciding", correct:"decided"},
+  {sent:"Georgia ___ a shower when someone knocked at the door.", a:"had", b:"was having", correct:"was having"},
+  {sent:"Holly and I ran from the house to the taxi because it ___ heavily.", a:"rained", b:"was raining", correct:"was raining"},
+  {sent:"Two men ___ outside, so I went to see what was happening.", a:"argued", b:"were arguing", correct:"were arguing"},
+  {sent:"Daniel ___ you at one o'clock yesterday, but you were here with me.", a:"called", b:"was calling", correct:"called"},
+  {sent:"We ___ breakfast when a letter came through the letter box.", a:"ate", b:"were eating", correct:"were eating"},
+  {sent:"As I walked past the window, I saw that Paula ___ a cake.", a:"made", b:"was making", correct:"was making"},
+  {sent:"I ___ about my favourite band when the alarm clock went off.", a:"dreamt", b:"was dreaming", correct:"was dreaming"},
+  {sent:"While I ___ the trumpet late last night, a neighbour came to complain.", a:"practised", b:"was practising", correct:"was practising"},
+];
+const listD = document.getElementById('listD');
+dData.forEach((q,i)=>{
+  const li = document.createElement('li');
+  const [before, after] = q.sent.split('___');
+  li.innerHTML = `<span class="qtext">${before}<span class="choice" data-q="${i+1}" data-answer="${q.correct}">
+    <button type="button" class="pill" data-value="${q.a}">${q.a}</button>
+    <button type="button" class="pill" data-value="${q.b}">${q.b}</button>
+    <span class="mark"></span>
+  </span>${after}</span>`;
+  listD.appendChild(li);
+});
+
+document.addEventListener('click', e=>{
+  if(e.target.classList.contains('pill')){
+    const group = e.target.closest('.choice');
+    if(group.classList.contains('locked')) return;
+    group.querySelectorAll('.pill').forEach(p=>p.classList.remove('selected'));
+    e.target.classList.add('selected');
+  }
+});
+
+// ---------- normalize ----------
+function normalize(s){
+  return (s||'').toLowerCase().trim()
+    .replace(/[’‘]/g,"'")
+    .replace(/\s+/g,' ')
+    .replace(/[.?!]+$/,'');
+}
+
+let submitted = false;
+
+function gradeAll(){
+  let total=0, correct=0;
+  document.querySelectorAll('section.ex.gradable').forEach(sec=>{
+    let secTotal=0, secCorrect=0;
+    sec.querySelectorAll('input.blank[data-answers]').forEach(inp=>{
+      total++; secTotal++;
+      const answers = JSON.parse(inp.dataset.answers);
+      const ok = answers.some(a=>normalize(a)===normalize(inp.value));
+      inp.classList.remove('correct','incorrect');
+      inp.classList.add(ok?'correct':'incorrect');
+      const mark = inp.nextElementSibling;
+      if(mark && mark.classList.contains('mark')){
+        mark.textContent = ok ? '✓' : '✗';
+        mark.classList.toggle('ok', ok);
+        mark.classList.toggle('no', !ok);
+      }
+      if(ok){correct++; secCorrect++;}
+    });
+    sec.querySelectorAll('.choice').forEach(ch=>{
+      total++; secTotal++;
+      const sel = ch.querySelector('.pill.selected');
+      const ok = sel ? sel.dataset.value === ch.dataset.answer : false;
+      ch.classList.remove('correct','incorrect');
+      ch.classList.add(ok?'correct':'incorrect');
+      const mark = ch.querySelector('.mark');
+      if(mark){ mark.textContent = ok ? '✓' : '✗'; mark.classList.toggle('ok', ok); mark.classList.toggle('no', !ok); }
+      if(ok){correct++; secCorrect++;}
+    });
+    const badge = sec.querySelector('.sec-score');
+    if(badge){ badge.textContent = secCorrect + '/' + secTotal; badge.style.display='inline-block'; }
+  });
+  return {total, correct};
+}
+
+function lockWorksheet(){
+  document.querySelectorAll('input.blank').forEach(i=> i.readOnly = true);
+  document.querySelectorAll('.choice').forEach(c=> c.classList.add('locked'));
+  document.getElementById('studentName').readOnly = true;
+}
+function unlockWorksheet(){
+  document.querySelectorAll('input.blank').forEach(i=> i.readOnly = false);
+  document.querySelectorAll('.choice').forEach(c=> c.classList.remove('locked'));
+  document.getElementById('studentName').readOnly = false;
+}
+
+document.getElementById('submitBtn').addEventListener('click', ()=>{
+  const {total, correct} = gradeAll();
+  const scoreEl = document.getElementById('globalScore');
+  scoreEl.textContent = 'Điểm: ' + correct + '/' + total;
+  scoreEl.classList.remove('pending');
+  lockWorksheet();
+  submitted = true;
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('copyBtn').disabled = false;
+});
+
+function buildReport(){
+  const name = document.getElementById('studentName').value.trim() || '(chưa điền tên)';
+  const scoreText = document.getElementById('globalScore').textContent;
+  const lines = [];
+  lines.push('WORKSHEET — Unit 2: Past Simple, Past Continuous & Used to');
+  lines.push('Họ tên: ' + name);
+  lines.push((submitted ? scoreText : 'Điểm: (chưa nộp bài)'));
+  lines.push('Ngày: ' + new Date().toLocaleString('vi-VN'));
+  lines.push('');
+  document.querySelectorAll('section.ex').forEach(sec=>{
+    const letter = sec.dataset.letter;
+    const title = sec.querySelector('.ex-head h2').textContent.trim();
+    lines.push(letter + '. ' + title);
+    const items = sec.querySelectorAll('input.blank[data-q], .choice[data-q]');
+    items.forEach(el=>{
+      const q = el.dataset.q;
+      let val, mark = '';
+      if(el.tagName === 'INPUT'){
+        val = el.value.trim() || '(để trống)';
+        if(el.dataset.answers){
+          mark = el.classList.contains('correct') ? ' ✓' : (el.classList.contains('incorrect') ? ' ✗' : '');
+        }
+      } else {
+        const sel = el.querySelector('.pill.selected');
+        val = sel ? sel.dataset.value : '(chưa chọn)';
+        mark = el.classList.contains('correct') ? ' ✓' : (el.classList.contains('incorrect') ? ' ✗' : '');
+      }
+      lines.push('  ' + q + '. ' + val + mark);
+    });
+    lines.push('');
+  });
+  if(!submitted){ lines.push('(Học viên chưa bấm "Nộp bài" — điểm đúng/sai chưa được chấm.)'); }
+  return lines.join('\n');
+}
+
+document.getElementById('copyBtn').addEventListener('click', ()=>{
+  const text = buildReport();
+  const btn = document.getElementById('copyBtn');
+  function done(){
+    const old = btn.textContent;
+    btn.textContent = 'Đã copy ✓';
+    setTimeout(()=>{ btn.textContent = old; }, 1600);
+  }
+  function fallbackCopy(t){
+    const ta = document.createElement('textarea');
+    ta.value = t; ta.style.position='fixed'; ta.style.left='-9999px';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(()=>{ fallbackCopy(text); done(); });
+  } else {
+    fallbackCopy(text); done();
+  }
+});
+
+document.getElementById('resetAll').addEventListener('click', ()=>{
+  document.querySelectorAll('input.blank').forEach(i=>{ i.value=''; i.classList.remove('correct','incorrect'); });
+  document.querySelectorAll('.pill.selected').forEach(p=>p.classList.remove('selected'));
+  document.querySelectorAll('.choice').forEach(c=>c.classList.remove('correct','incorrect','locked'));
+  document.querySelectorAll('.mark').forEach(m=>{ m.textContent=''; m.classList.remove('ok','no'); });
+  document.querySelectorAll('.sec-score').forEach(s=>{ s.style.display='none'; s.textContent=''; });
+  document.getElementById('studentName').value='';
+  unlockWorksheet();
+  submitted = false;
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('copyBtn').disabled = true;
+  const scoreEl = document.getElementById('globalScore');
+  scoreEl.textContent = 'Chưa nộp bài';
+  scoreEl.classList.add('pending');
+});
+</script>
+</body>
+</html>
